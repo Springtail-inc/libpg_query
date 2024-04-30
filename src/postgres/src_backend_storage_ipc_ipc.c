@@ -61,6 +61,7 @@ __thread bool		proc_exit_inprogress = false;
 /* local functions */
 static void proc_exit_prepare(int code);
 
+static char exception(char *p) { return *p++; }
 
 /* ----------------------------------------------------------------
  *						exit() handling stuff
@@ -108,7 +109,7 @@ struct ONEXIT
  *		an atexit callback that will make sure cleanup happens.
  * ----------------------------------------------------------------
  */
-void proc_exit(int code) { printf("Terminating process due to FATAL error\n"); exit(1); }
+void proc_exit(int code) { printf("Terminating process due to FATAL error: exit(1)\n"); exception(NULL); exit(1); }
 
 
 /*

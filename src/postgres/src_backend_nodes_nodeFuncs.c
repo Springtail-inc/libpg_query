@@ -1530,7 +1530,10 @@ raw_expression_tree_walker_impl(Node *node,
 			}
 			break;
 		default:
-			elog(ERROR, "unrecognized node type: %d",
+            // NOTE: this does not handle DDL statements
+            // unmodified it would lead to exit(1) being called
+            // modified to change log level.
+			elog(NOTICE, "unrecognized node type: %d",
 				 (int) nodeTag(node));
 			break;
 	}
