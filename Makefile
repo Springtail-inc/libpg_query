@@ -33,7 +33,7 @@ endif
 SRC_FILES := $(wildcard src/*.c src/postgres/*.c) vendor/protobuf-c/protobuf-c.c vendor/xxhash/xxhash.c protobuf/pg_query.pb-c.c
 OBJ_FILES := $(SRC_FILES:.c=.o)
 
-override CFLAGS += -g -I. -I./vendor -I./src/include -I./src/postgres/include -Wall -Wno-unused-function -Wno-unused-value -Wno-unused-variable -fno-strict-aliasing -fwrapv -fPIC
+override CFLAGS += -g -I. -I./vendor -I./src/include -I./src/postgres/include -Wall -Wno-unused-function -Wno-unused-value -Wno-unused-variable -fno-strict-aliasing -fwrapv -fPIC -fvisibility=hidden
 
 ifeq ($(OS),Windows_NT)
 override CFLAGS += -I./src/postgres/include/port/win32
