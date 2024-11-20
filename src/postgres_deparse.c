@@ -8617,7 +8617,7 @@ static void deparseFetchStmt(StringInfo str, FetchStmt *fetch_stmt)
 			appendStringInfo(str, "RELATIVE %ld ", fetch_stmt->howMany);
 	}
 
-	appendStringInfoString(str, fetch_stmt->portalname);
+	appendStringInfoString(str, quote_identifier(fetch_stmt->portalname));
 }
 
 static void deparseAlterDefaultPrivilegesStmt(StringInfo str, AlterDefaultPrivilegesStmt *alter_default_privileges_stmt)
