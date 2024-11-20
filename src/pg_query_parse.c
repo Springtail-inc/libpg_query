@@ -169,7 +169,7 @@ PgQueryProtobufParseResult pg_query_parse_protobuf_opts(const char* input, int p
 	return result;
 }
 
-void pg_query_free_parse_result(PgQueryParseResult result)
+void PUBLIC pg_query_free_parse_result(PgQueryParseResult result)
 {
 	if (result.error) {
 		pg_query_free_error(result.error);
